@@ -52,6 +52,9 @@
             "@php artisan optimize",
             "@php artisan migrate --force",
             "@php artisan passport:install --force"
+        ],
+        "compile": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
     "extra": {
