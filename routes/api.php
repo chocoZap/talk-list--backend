@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/talkLists', 'App\Http\Controllers\TalkListController@index');
+// 登録
+Route::post('/talkLists', 'App\Http\Controllers\TalkListController@store');
+// 詳細取得
+Route::get('/talkLists/{task}', 'App\Http\Controllers\TalkListController@show');
+// 編集
+Route::put('/talkLists/{task}', 'App\Http\Controllers\TalkListController@update');
+// 削除
+Route::delete('/talkLists/{task}', 'App\Http\Controllers\TalkListController@destroy');
