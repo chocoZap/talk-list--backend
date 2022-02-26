@@ -15,10 +15,19 @@ class TalkListsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) {
-          TalkList::create([
-                'content' => 'content' . $i,
-            ]);
+        // for ($i = 1; $i <= 10; $i++) {
+        //   TalkList::create([
+        //         'content' => 'content' . $i,
+        //     ]);
+        // }
+      if (($handle = fopen(__DIR__  . '/talk-list.csv', 'r')) !== false) {
+        while (($data = fgetcsv($handle))) {
+          TalkList::insert([
+            'id'   => $data[0],
+            'content' => $data[1],
+          ]);
         }
+        fclose($handle);
+      }
     }
 }
