@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\TalkList;
+use App\Services\TalkListService;
 use Illuminate\Http\Request;
 
 class TalkListController extends Controller
 {
-    public function index()
+    public function index(TalkListService $instance)
     {
-      return TalkList::orderBy('id', 'desc')->get();
+      return TalkListService::index();
     }
 
     public function store(Request $request)
