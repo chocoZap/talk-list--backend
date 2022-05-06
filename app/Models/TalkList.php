@@ -10,7 +10,8 @@ class TalkList extends Model
 {
   //
   protected $fillable = ['content'];
-
+  const CREATED_AT = 'created_at';
+  const UPDATED_AT = 'updated_at';
   public function reviews() {
       return $this->hasMany(Review, 'talkList_id', 'id');
   }

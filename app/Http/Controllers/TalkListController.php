@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\TalkList;
 use App\Services\TalkListService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TalkListController extends Controller
 {
-    public function index(TalkListService $instance)
+    public static function index(TalkListService $instance)
     {
       return TalkListService::index();
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Response $response)
     {
-      TalkList::create($request->all());
-      return $this->index();
+        TalkList::create($request->all());
+        return $response->status();
     }
 
     public function show(TalkList $TalkList)

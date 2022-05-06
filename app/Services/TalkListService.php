@@ -17,7 +17,7 @@ class TalkListService {
             $talkList['reviews'] = array();
         }
         // レビューの取得
-        $reviews = Review::select('id', 'talkList_id', 'stars', 'comment')->get();
+        $reviews = Review::select('id', 'talkList_id', 'stars', 'comment', 'created_at')->get();
         // トークリストIDごとにグルーピング
         $grouped = $reviews->groupBy('talkList_id');
         // トークリストの取得結果にレビューの配列を追加する

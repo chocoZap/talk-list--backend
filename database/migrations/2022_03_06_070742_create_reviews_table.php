@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('talkList_id')->default(0)->comment('トークリストID');
-            $table->integer('stars')->default(0)->comment('星');
+            $table->float('stars')->default(0)->comment('星');
             $table->text('comment')->comment('コメント');
             $table->timestamps();
 

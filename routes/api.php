@@ -22,3 +22,5 @@ Route::get('/talkLists/{task}', 'App\Http\Controllers\TalkListController@show');
 Route::put('/talkLists/{task}', 'App\Http\Controllers\TalkListController@update');
 // 削除
 Route::delete('/talkLists/{task}', 'App\Http\Controllers\TalkListController@destroy');
+// 登録
+Route::post('/reviews', 'App\Http\Controllers\ReviewController@store');
