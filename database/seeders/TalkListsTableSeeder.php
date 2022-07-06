@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\TalkList;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use DateTime;
 
 class TalkListsTableSeeder extends Seeder
 {
@@ -23,8 +24,9 @@ class TalkListsTableSeeder extends Seeder
       if (($handle = fopen(__DIR__  . '/talk-list.csv', 'r')) !== false) {
         while (($data = fgetcsv($handle))) {
           TalkList::insert([
-            'id'   => $data[0],
             'content' => $data[1],
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
           ]);
         }
         fclose($handle);
